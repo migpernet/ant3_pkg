@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5">
+
+  <!-- Include the features of the robots -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.xacro" />  
+  <xacro:include filename="$(find ant3_pkg)/urdf/ur5_transmission.xacro"/>
+  <xacro:include filename="$(find ant3_pkg)/urdf/ur5_plugin.xacro"/>
+  
+
+  <!--Fixar o robo ao mundo (Attach the robot in the world)-->
+  <link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+    
+</robot>

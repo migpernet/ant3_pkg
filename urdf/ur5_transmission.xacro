@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--Criando a macro-->
+    <xacro:macro name="ur_arm_transmission" params="prefix hw_interface1 hw_interface2">
+
+        <transmission name="${prefix}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_joint">
+            <hardwareInterface>${hw_interface1}</hardwareInterface>
+            <hardwareInterface>${hw_interface2}</hardwareInterface>
+            </joint>
+            <actuator name="${prefix}_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <!--Invocando a macro-->
+        <xacro:ur_arm_transmission prefix="shoulder_pan" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        <xacro:ur_arm_transmission prefix="shoulder_lift" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        <xacro:ur_arm_transmission prefix="elbow" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        <xacro:ur_arm_transmission prefix="wrist_1" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        <xacro:ur_arm_transmission prefix="wrist_2" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        <xacro:ur_arm_transmission prefix="wrist_3" hw_interface1="hardware_interface/PositionJointInterface" hw_interface2="hardware_interface/EffortJointInterface" />
+        
+    </xacro:macro>
+
+</robot>
